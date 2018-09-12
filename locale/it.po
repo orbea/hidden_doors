@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Hidden Doors module's Italian locale\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-31 23:55+0200\n"
-"PO-Revision-Date: 2017-08-31 23:57+0100\n"
-"Last-Translator: H4mlet <h4mlet@riseup.net>\n"
+"POT-Creation-Date: 2018-09-12 14:18+0200\n"
+"PO-Revision-Date: 2018-09-12 14:20+0100\n"
+"Last-Translator: Hamlet\n"
 "Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -18,21 +18,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.10\n"
 
-#: init.lua
+#: main.lua
 msgid "Concealed "
-msgstr "Porta camuffata di "
+msgstr "porta camuffata di "
 
-#: init.lua
-msgid "Painted "
-msgstr "Porta dipinto di "
-
-#: init.lua
+#: main.lua
 msgid " Door"
 msgstr " "
 
-#: init.lua
-msgid "[Mod] Hidden Doors loaded"
-msgstr "[Mod] Hidden Doors caricato"
+#: main.lua
+msgid "Painted "
+msgstr "porta dipinta di "
 
 #: minetest_game.lua
 msgid "Stone"
@@ -214,126 +210,6 @@ msgstr "sabbia argentea"
 msgid "Desert Sand"
 msgstr "sabbia del deserto"
 
-#: darkage.lua
-msgid "Adobe"
-msgstr "adobo"
-
-#: darkage.lua
-msgid "Basalt"
-msgstr "basalto"
-
-#: darkage.lua
-msgid "Basalt Rubble"
-msgstr "detriti di basalto"
-
-#: darkage.lua
-msgid "Basalt Brick"
-msgstr "mattoni di basalto"
-
-#: darkage.lua
-msgid "Basalt Block"
-msgstr "blocchi di basalto"
-
-#: darkage.lua
-msgid "Gneiss"
-msgstr "gneis"
-
-#: darkage.lua
-msgid "Gneiss Rubble"
-msgstr "detriti di gneis"
-
-#: darkage.lua
-msgid "Gneiss Brick"
-msgstr "mattoni di gneis"
-
-#: darkage.lua
-msgid "Gneiss Block"
-msgstr "blocchi di gneis"
-
-#: darkage.lua
-msgid "Marble"
-msgstr "marmo"
-
-#: darkage.lua
-msgid "Marble Tile"
-msgstr "mattonelle di marmo"
-
-#: darkage.lua
-msgid "Old Red Sandstone"
-msgstr "arenaria rosso antico"
-
-#: darkage.lua
-msgid "Old Red Sandstone Rubble"
-msgstr "detriti di arenaria rosso antico"
-
-#: darkage.lua
-msgid "Old Red Sandstone Brick"
-msgstr "mattoni di arenaria rosso antico"
-
-#: darkage.lua
-msgid "Old Red Sandstone Block"
-msgstr "blocchi di arenaria rosso antico"
-
-#: darkage.lua
-msgid "Serpentine"
-msgstr "serpentina"
-
-#: darkage.lua
-msgid "Shale"
-msgstr "argillite"
-
-#: darkage.lua
-msgid "Schist"
-msgstr "scisto"
-
-#: darkage.lua
-msgid "Slate"
-msgstr "lavagna"
-
-#: darkage.lua
-msgid "Slate Rubble"
-msgstr "detriti di lavagna"
-
-#: darkage.lua
-msgid "Slate Tile"
-msgstr "mattonelle di lavagna"
-
-#: darkage.lua
-msgid "Slate Block"
-msgstr "blocchi di lavagna"
-
-#: darkage.lua
-msgid "Slate Brick"
-msgstr "mattoni di lavagna"
-
-#: darkage.lua
-msgid "Tuff"
-msgstr "tufo vulcanico"
-
-#: darkage.lua
-msgid "Tuff Bricks"
-msgstr "mattoni di tufo vulcanico"
-
-#: darkage.lua
-msgid "Tuff Rubble"
-msgstr "detriti di tufo vulcanico"
-
-#: darkage.lua
-msgid "Rhyolitic Tuff"
-msgstr "tufo di riolite"
-
-#: darkage.lua
-msgid "Rhyolitic Tuff Bricks"
-msgstr "mattoni di tufo di riolite"
-
-#: darkage.lua
-msgid "Old Tuff Bricks"
-msgstr "mattoni di tufo vulcanico vecchio"
-
-#: darkage.lua
-msgid "Rhyolitic Tuff Rubble"
-msgstr "detriti di tufo di riolite"
-
 #: moreblocks.lua
 msgid "All-faces Jungle Tree"
 msgstr "cuore di albero della giungla"
@@ -363,7 +239,7 @@ msgid "Copper Patina"
 msgstr "patina di rame"
 
 #: moreblocks.lua
-msgid "Empty Bookshelf"
+msgid "Empty Shelf"
 msgstr "scaffale vuoto"
 
 #: moreblocks.lua
@@ -387,10 +263,6 @@ msgid "Split Stone Tile"
 msgstr "mattonelle di pietra divisa"
 
 #: moreblocks.lua
-msgid "Checkered Stone Tile"
-msgstr "mattonelle di pietra a scacchi"
-
-#: moreblocks.lua
 msgid "Stone Tile"
 msgstr "mattonelle di pietra"
 
@@ -399,9 +271,104 @@ msgid "Tar"
 msgstr "catrame"
 
 #: moreblocks.lua
-msgid "Trap Stone"
-msgstr "pietra trappola"
-
-#: moreblocks.lua
 msgid "Full Wooden Tile"
 msgstr "mattonelle di legno pieno"
+
+#~ msgid "[Mod] Hidden Doors loaded"
+#~ msgstr "[Mod] Hidden Doors caricato"
+
+#~ msgid "Adobe"
+#~ msgstr "adobo"
+
+#~ msgid "Basalt"
+#~ msgstr "basalto"
+
+#~ msgid "Basalt Rubble"
+#~ msgstr "detriti di basalto"
+
+#~ msgid "Basalt Brick"
+#~ msgstr "mattoni di basalto"
+
+#~ msgid "Basalt Block"
+#~ msgstr "blocchi di basalto"
+
+#~ msgid "Gneiss"
+#~ msgstr "gneis"
+
+#~ msgid "Gneiss Rubble"
+#~ msgstr "detriti di gneis"
+
+#~ msgid "Gneiss Brick"
+#~ msgstr "mattoni di gneis"
+
+#~ msgid "Gneiss Block"
+#~ msgstr "blocchi di gneis"
+
+#~ msgid "Marble"
+#~ msgstr "marmo"
+
+#~ msgid "Marble Tile"
+#~ msgstr "mattonelle di marmo"
+
+#~ msgid "Old Red Sandstone"
+#~ msgstr "arenaria rosso antico"
+
+#~ msgid "Old Red Sandstone Rubble"
+#~ msgstr "detriti di arenaria rosso antico"
+
+#~ msgid "Old Red Sandstone Brick"
+#~ msgstr "mattoni di arenaria rosso antico"
+
+#~ msgid "Old Red Sandstone Block"
+#~ msgstr "blocchi di arenaria rosso antico"
+
+#~ msgid "Serpentine"
+#~ msgstr "serpentina"
+
+#~ msgid "Shale"
+#~ msgstr "argillite"
+
+#~ msgid "Schist"
+#~ msgstr "scisto"
+
+#~ msgid "Slate"
+#~ msgstr "lavagna"
+
+#~ msgid "Slate Rubble"
+#~ msgstr "detriti di lavagna"
+
+#~ msgid "Slate Tile"
+#~ msgstr "mattonelle di lavagna"
+
+#~ msgid "Slate Block"
+#~ msgstr "blocchi di lavagna"
+
+#~ msgid "Slate Brick"
+#~ msgstr "mattoni di lavagna"
+
+#~ msgid "Tuff"
+#~ msgstr "tufo vulcanico"
+
+#~ msgid "Tuff Bricks"
+#~ msgstr "mattoni di tufo vulcanico"
+
+#~ msgid "Tuff Rubble"
+#~ msgstr "detriti di tufo vulcanico"
+
+#~ msgid "Rhyolitic Tuff"
+#~ msgstr "tufo di riolite"
+
+#~ msgid "Rhyolitic Tuff Bricks"
+#~ msgstr "mattoni di tufo di riolite"
+
+#~ msgid "Old Tuff Bricks"
+#~ msgstr "mattoni di tufo vulcanico vecchio"
+
+#~ msgid "Rhyolitic Tuff Rubble"
+#~ msgstr "detriti di tufo di riolite"
+
+#~ msgid "Checkered Stone Tile"
+#~ msgstr "mattonelle di pietra a scacchi"
+
+#~ msgid "Trap Stone"
+#~ msgstr "pietra trappola"

@@ -7,9 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-	Allow to lock the doors using per-material keys
-	(e.g. wooden key, stone key, etc.)
-	Allow to lockpick the doors.
+	No further features planned.
+
+
+## [1.11] - 2018-09-12
+### Added
+
+	Painted doors, thanks to Treer
+
 
 
 ## [1.10.2] - 2018-07-12

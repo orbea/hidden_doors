@@ -1,9 +1,10 @@
 ### HIDDEN DOORS
 ![Hidden Doors' screenshot](screenshot.png)  
 **_Adds various wood, stone, etc. doors._**  
-Allows self-removal via Settings/Advanced Settings/Mods/hidden_doors
+Allows to use painted doors Settings/Advanced Settings/Mods/hidden_doors  
+Allows self-removal via Advanced Settings
 
-**Version:** 1.10.2  
+**Version:** 1.11  
 **Source code's license:** GPL v3.0  
 **Media (Textures, Sounds) license:** CC BY-SA 4.0 International
 

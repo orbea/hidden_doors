@@ -2,7 +2,7 @@
 
    Hidden Doors - Adds various wood, stone, etc. doors.
 
-   Copyright (C) 2017-2018  Hamlet, Napiophelios
+   Copyright (C) 2017-2018  Hamlet, Napiophelios, Treer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by

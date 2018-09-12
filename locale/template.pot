@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-31 23:55+0200\n"
+"POT-Creation-Date: 2018-09-12 14:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: init.lua
+#: main.lua
 msgid "Concealed "
 msgstr ""
 
-#: init.lua
-msgid "Painted "
-msgstr ""
-
-#: init.lua
+#: main.lua
 msgid " Door"
 msgstr ""
 
-#: init.lua
-msgid "[Mod] Hidden Doors loaded"
+#: main.lua
+msgid "Painted "
 msgstr ""
 
 #: minetest_game.lua
@@ -213,126 +209,6 @@ msgstr ""
 msgid "Desert Sand"
 msgstr ""
 
-#: darkage.lua
-msgid "Adobe"
-msgstr ""
-
-#: darkage.lua
-msgid "Basalt"
-msgstr ""
-
-#: darkage.lua
-msgid "Basalt Rubble"
-msgstr ""
-
-#: darkage.lua
-msgid "Basalt Brick"
-msgstr ""
-
-#: darkage.lua
-msgid "Basalt Block"
-msgstr ""
-
-#: darkage.lua
-msgid "Gneiss"
-msgstr ""
-
-#: darkage.lua
-msgid "Gneiss Rubble"
-msgstr ""
-
-#: darkage.lua
-msgid "Gneiss Brick"
-msgstr ""
-
-#: darkage.lua
-msgid "Gneiss Block"
-msgstr ""
-
-#: darkage.lua
-msgid "Marble"
-msgstr ""
-
-#: darkage.lua
-msgid "Marble Tile"
-msgstr ""
-
-#: darkage.lua
-msgid "Old Red Sandstone"
-msgstr ""
-
-#: darkage.lua
-msgid "Old Red Sandstone Rubble"
-msgstr ""
-
-#: darkage.lua
-msgid "Old Red Sandstone Brick"
-msgstr ""
-
-#: darkage.lua
-msgid "Old Red Sandstone Block"
-msgstr ""
-
-#: darkage.lua
-msgid "Serpentine"
-msgstr ""
-
-#: darkage.lua
-msgid "Shale"
-msgstr ""
-
-#: darkage.lua
-msgid "Schist"
-msgstr ""
-
-#: darkage.lua
-msgid "Slate"
-msgstr ""
-
-#: darkage.lua
-msgid "Slate Rubble"
-msgstr ""
-
-#: darkage.lua
-msgid "Slate Tile"
-msgstr ""
-
-#: darkage.lua
-msgid "Slate Block"
-msgstr ""
-
-#: darkage.lua
-msgid "Slate Brick"
-msgstr ""
-
-#: darkage.lua
-msgid "Tuff"
-msgstr ""
-
-#: darkage.lua
-msgid "Tuff Bricks"
-msgstr ""
-
-#: darkage.lua
-msgid "Tuff Rubble"
-msgstr ""
-
-#: darkage.lua
-msgid "Rhyolitic Tuff"
-msgstr ""
-
-#: darkage.lua
-msgid "Rhyolitic Tuff Bricks"
-msgstr ""
-
-#: darkage.lua
-msgid "Old Tuff Bricks"
-msgstr ""
-
-#: darkage.lua
-msgid "Rhyolitic Tuff Rubble"
-msgstr ""
-
 #: moreblocks.lua
 msgid "All-faces Jungle Tree"
 msgstr ""
@@ -362,7 +238,7 @@ msgid "Copper Patina"
 msgstr ""
 
 #: moreblocks.lua
-msgid "Empty Bookshelf"
+msgid "Empty Shelf"
 msgstr ""
 
 #: moreblocks.lua
@@ -386,19 +262,11 @@ msgid "Split Stone Tile"
 msgstr ""
 
 #: moreblocks.lua
-msgid "Checkered Stone Tile"
-msgstr ""
-
-#: moreblocks.lua
 msgid "Stone Tile"
 msgstr ""
 
 #: moreblocks.lua
 msgid "Tar"
-msgstr ""
-
-#: moreblocks.lua
-msgid "Trap Stone"
 msgstr ""
 
 #: moreblocks.lua
