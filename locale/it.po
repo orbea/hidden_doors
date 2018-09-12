@@ -23,6 +23,10 @@ msgid "Concealed "
 msgstr "Porta camuffata di "
 
 #: init.lua
+msgid "Painted "
+msgstr "Porta dipinto di "
+
+#: init.lua
 msgid " Door"
 msgstr " "
 

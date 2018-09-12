@@ -31,6 +31,13 @@ hidden_doors = {}
 local description_1 = S("Concealed ")
 local description_2 = S(" Door")
 
+-- 'painted' doors are not fully concealed, they are wooden doors painted to blend in
+local doors_are_painted = minetest.settings:get_bool("hidden_doors_painted", false)
+
+if doors_are_painted then 
+    description_1 = S("Painted ") 
+end
+
 -- Hidden Doors' sounds
 local hidden_doors_vol = tonumber(minetest.settings:get("hidden_doors_vol"))
 
@@ -166,6 +173,37 @@ else
 end
 
 
+function hidden_doors.get_painted_texture_suffix(use_default_16px_res)
+
+   local texture_suffix = ""
+   local texture_suffix_inv = ""
+
+   if doors_are_painted then 
+
+      local paint_opacity = 35
+      local paint_opacity_inv = paint_opacity + 15
+
+      if use_default_16px_res then
+         texture_suffix = 
+            "^((hidden_doors_painted_overlay.png^[opacity:" .. paint_opacity ..
+            "^hidden_doors_hinges_overlay.png)^[resize:38x32)"
+         texture_suffix_inv = 
+            ":8,0=hidden_doors_painted_overlay.png\\^[opacity\\:" .. 
+            paint_opacity_inv .. "\\^[resize\\:38x32"
+      else 
+         texture_suffix = 
+            "^((hidden_doors_painted_overlay.png^[opacity:" .. paint_opacity .. 
+            "^hidden_doors_hinges_overlay.png)^[resize:" .. image_size .. ")"
+         texture_suffix_inv = 
+            ": " .. X1 .. ",0=hidden_doors_painted_overlay.png\\^[opacity\\:" .. 
+            paint_opacity_inv .. "\\^[resize\\:" .. image_size
+      end
+   end
+
+   return texture_suffix, texture_suffix_inv
+end
+
+
 function hidden_doors.register_hidden_doors(modname, subname, recipeItem1,
    recipeItem2, recipeItem3, desc, sounds, sound_open, sound_close)
 
@@ -183,18 +221,22 @@ function hidden_doors.register_hidden_doors(modname, subname, recipeItem1,
          "0=" .. texture_name .. ":" .. X4 .. "," ..
          Y3 .. "=" .. texture_name
 
+      local painted_texture_suffix, painted_texture_suffix_inv =
+         hidden_doors.get_painted_texture_suffix(true)  
+
       doors.register("hidden_door_" .. subname, {
 
          description = description_1 .. desc .. description_2,
 
          tiles = {{ name = "(" .. new_texture ..
-            "^[transformFX)^[combine:" .. image_size.. ":" ..X3.. "," ..
+            "^[transformFX)^([combine:" .. image_size.. ":" ..X3.. "," ..
             "0=" .. texture_name .. ":" .. X3 .. "," ..
-            Y3 .. "=" .. texture_name , backface_culling = true }},
+            Y3 .. "=" .. texture_name .. ")" .. painted_texture_suffix, 
+            backface_culling = true }},
 
          inventory_image = "[combine:" .. inv_size .. ":" .. X1 .. "," ..
             "0=" .. texture_name .. ":" .. X1 .. "," ..
-            Y1 .. "=" ..texture_name,
+            Y1 .. "=" ..texture_name .. painted_texture_suffix_inv,
 
          groups = {cracky = 1, level = 2},
          sounds = sounds,
@@ -214,18 +256,22 @@ function hidden_doors.register_hidden_doors(modname, subname, recipeItem1,
          "0=" .. texture_name .. ": 22," ..
          "16=" .. texture_name
 
+      local painted_texture_suffix, painted_texture_suffix_inv =
+         hidden_doors.get_painted_texture_suffix(false)    
+ 
       doors.register("hidden_door_" .. subname, {
 
          description = description_1 .. desc .. description_2,
 
          tiles = {{ name = "(" .. new_texture ..
-            "^[transformFX)^[combine:" .. "38x32" .. ": 16," ..
+            "^[transformFX)^([combine:" .. "38x32" .. ": 16," ..
             "0=" .. texture_name .. ": 16," ..
-            "16=" .. texture_name , backface_culling = true }},
+            "16=" .. texture_name .. ")" .. painted_texture_suffix, 
+            backface_culling = true }},
 
          inventory_image = "[combine:" .. "32x32" .. ": 8," ..
             "0=" .. texture_name .. ": 8," ..
-            "16=" .. texture_name,
+            "16=" .. texture_name .. painted_texture_suffix_inv,
 
          groups = {cracky = 1, level = 2},
          sounds = sounds,
