@@ -222,7 +222,7 @@ function hidden_doors.register_hidden_doors(modname, subname, recipeItem1,
          Y3 .. "=" .. texture_name
 
       local painted_texture_suffix, painted_texture_suffix_inv =
-         hidden_doors.get_painted_texture_suffix(true)  
+         hidden_doors.get_painted_texture_suffix(false)  
 
       doors.register("hidden_door_" .. subname, {
 
@@ -257,7 +257,7 @@ function hidden_doors.register_hidden_doors(modname, subname, recipeItem1,
          "16=" .. texture_name
 
       local painted_texture_suffix, painted_texture_suffix_inv =
-         hidden_doors.get_painted_texture_suffix(false)    
+         hidden_doors.get_painted_texture_suffix(true)    
  
       doors.register("hidden_door_" .. subname, {
 
