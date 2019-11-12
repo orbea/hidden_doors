@@ -1,295 +1,349 @@
 --[[
+	Hidden Doors - Adds various wood, stone, etc. doors.
+	Copyright © 2017, 2019 Hamlet <hamlatmesehub@riseup.net>,
+	Napiophelios, Treer and contributors.
 
-   Hidden Doors - Adds various wood, stone, etc. doors.
+	Licensed under the EUPL, Version 1.2 or – as soon they will be
+	approved by the European Commission – subsequent versions of the
+	EUPL (the "Licence");
+	You may not use this work except in compliance with the Licence.
+	You may obtain a copy of the Licence at:
 
-   Copyright (C) 2017-2018  Hamlet, Napiophelios, Treer
+	https://joinup.ec.europa.eu/software/page/eupl
+	https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017D0863
 
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
-   (at your option) any later version.
+	Unless required by applicable law or agreed to in writing,
+	software distributed under the Licence is distributed on an
+	"AS IS" basis,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+	implied.
+	See the Licence for the specific language governing permissions
+	and limitations under the Licence.
 
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-   MA 02110-1301, USA.
-
-]]--
+--]]
 
 
--- Load support for intllib.
-local MP = minetest.get_modpath(minetest.get_current_modname())
-S, NS = dofile(MP.."/intllib.lua")
+--
+-- Global mod namespace
+--
 
 hidden_doors = {}
 
-local description_1 = S("Concealed ")
-local description_2 = S(" Door")
 
--- 'painted' doors are not fully concealed, they are wooden doors painted to blend in
-local doors_are_painted = minetest.settings:get_bool("hidden_doors_painted", false)
+--
+-- Variables
+--
 
-if doors_are_painted then 
-    description_1 = S("Painted ") 
+-- Load support for intllib.
+local s_ModPath = minetest.get_modpath(minetest.get_current_modname())
+S, NS = dofile(s_ModPath.."/intllib.lua")
+
+local s_Description1 = S("Concealed ")
+local s_Description2 = S(" Door")
+
+-- 'painted' doors are not fully concealed,
+-- they are wooden doors painted to blend in
+local b_DoorsArePainted = minetest.settings:get_bool("hidden_doors_painted", false)
+
+if b_DoorsArePainted then
+	 s_Description1 = S("Painted ")
 end
 
 -- Hidden Doors' sounds
-local hidden_doors_vol = tonumber(minetest.settings:get("hidden_doors_vol"))
+local f_HiddenDoorsVolume = tonumber(minetest.settings:get("hidden_doors_vol"))
 
-if not hidden_doors_vol then
-   hidden_doors_vol = 5.0
+if (f_HiddenDoorsVolume == nil) then
+	f_HiddenDoorsVolume = 5.0
 end
 
-stone_default = default.node_sound_stone_defaults()
-stone_open = {name = "hidden_doors_stone_door_open", gain = hidden_doors_vol}
-stone_close = {name = "hidden_doors_stone_door_close", gain = hidden_doors_vol}
+t_StoneDefault = default.node_sound_stone_defaults()
+t_StoneOpen = {
+	name = "hidden_doors_stone_door_open",
+	gain = f_HiddenDoorsVolume
+}
+t_StoneClose = {
+	name = "hidden_doors_stone_door_close",
+	gain = f_HiddenDoorsVolume
+}
 
-wood_default = default.node_sound_wood_defaults()
-wood_open = "doors_door_open"
-wood_close = "doors_door_close"
+t_WoodDefault = default.node_sound_wood_defaults()
+s_WoodOpen = "doors_door_open"
+s_WoodClose = "doors_door_close"
 
-metal_default = default.node_sound_metal_defaults()
-metal_open = "doors_steel_door_open"
-metal_close = "doors_steel_door_close"
+t_MetalDefault = default.node_sound_metal_defaults()
+s_MetalOpen = "doors_steel_door_open"
+s_MetalClose = "doors_steel_door_close"
 
-gem_default = default.node_sound_glass_defaults()
-gem_open = "doors_glass_door_open"
-gem_close = "doors_glass_door_close"
+t_GemDefault = default.node_sound_glass_defaults()
+s_GemOpen = "doors_glass_door_open"
+s_GemClose = "doors_glass_door_close"
 
 -- Hidden door's base recipe item
-recipeItem1 = "doors:door_wood"
+s_RecipeItem1 = "doors:door_wood"
 
 -- Hidden door's texture variables
-local pixels = 16   local width = 0   local height = 0
+local i_Resolution = 16 -- Default textures' resolution.
+local i_NodeWidth = 0
+local i_NodeHeight = 0
+local s_ImageSize = ""
 
-local image_size = ""
+-- Composed texture's images' offsets.
+local i_Y1 = 0	local i_X1 = 0
+local i_Y2 = 0	local i_X2 = 0
+local i_Y3 = 0	local i_X3 = 0
+local i_Y4 = 0	local i_X4 = 0
 
-local Y1 = 0   local X1 = 0
-local Y2 = 0   local X2 = 0
-local Y3 = 0   local X3 = 0
-local Y4 = 0   local X4 = 0
+local i_HiddenDoorsRes = tonumber(minetest.settings:get("i_HiddenDoorsRes"))
 
-local hidden_doors_res = tonumber(minetest.settings:get("hidden_doors_res"))
-
-if not hidden_doors_res then
-   hidden_doors_res = pixels
+if (i_HiddenDoorsRes == nil) then
+	i_HiddenDoorsRes = i_Resolution
 end
 
 
-if hidden_doors_res == 16 then
+if i_HiddenDoorsRes == 16 then
 
-   -- Item's inventory texture dimensions
-   inv_w = pixels * 2   inv_h = pixels * 2
-   inv_size = inv_w.."x"..inv_h
+	-- Item's inventory texture dimensions
+	i_InventoryWidth = i_Resolution * 2
+	i_InventoryHeight = i_Resolution * 2
+	s_InventorySize = i_InventoryWidth .. "x" .. i_InventoryHeight
 
-   -- Node's texture dimensions
-   width = (pixels * 2) + 6   height = pixels * 2
-   image_size = width.."x"..height
+	-- Node's texture dimensions
+	i_NodeWidth = (i_Resolution * 2) + 6
+	i_NodeHeight = (i_Resolution * 2)
+	s_ImageSize = i_NodeWidth .. "x" .. i_NodeHeight
 
-   -- Composed texture's dimensions
-   Y1 = pixels    X1 = 8
-   Y2 = 6         X2 = 6
-   Y3 = pixels    X3 = pixels
-   Y4 = pixels    X4 = 22
-
-
-elseif hidden_doors_res == 32 then
-
-   -- Item's inventory texture dimensions
-   inv_w = pixels * 4   inv_h = pixels * 4
-   inv_size = inv_w.."x"..inv_h
-
-   -- Node's texture dimensions
-   width = ((pixels * 2) + 6) * 2   height = pixels * 4
-   image_size = width.."x"..height
-
-   -- Composed texture's dimensions
-   Y1 = 32           X1 = 16
-   Y2 = 12           X2 = 12
-   Y3 = pixels * 2   X3 = pixels * 2
-   Y4 = pixels * 2   X4 = 44
+	-- Composed texture's dimensions
+	i_Y1 = i_Resolution	i_X1 = 8
+	i_Y2 = 6			i_X2 = 6
+	i_Y3 = i_Resolution	i_X3 = i_Resolution
+	i_Y4 = i_Resolution	i_X4 = 22
 
 
-elseif hidden_doors_res == 64 then
+elseif i_HiddenDoorsRes == 32 then
 
-   -- Item's inventory texture dimensions
-   inv_w = pixels * 8   inv_h = pixels * 8
-   inv_size = inv_w.."x"..inv_h
+	-- Item's inventory texture dimensions
+	i_InventoryWidth = (i_Resolution * 4)
+	i_InventoryHeight = (i_Resolution * 4)
+	s_InventorySize = i_InventoryWidth .. "x" .. i_InventoryHeight
 
-   -- Node's texture dimensions
-   width = ((pixels * 2) + 6) * 4   height = pixels * 8
-   image_size = width .. "x" .. height
+	-- Node's texture dimensions
+	i_NodeWidth = ((i_Resolution * 2) + 6) * 2
+	i_NodeHeight = (i_Resolution * 4)
+	s_ImageSize = i_NodeWidth .. "x" .. i_NodeHeight
 
-   -- Composed texture's dimensions
-   Y1 = 64           X1 = 32
-   Y2 = 24           X2 = 24
-   Y3 = pixels * 4   X3 = pixels * 4
-   Y4 = pixels * 4   X4 = 88
+	-- Composed texture's dimensions
+	i_Y1 = 32					i_X1 = 16
+	i_Y2 = 12					i_X2 = 12
+	i_Y3 = (i_Resolution * 2)	i_X3 = (i_Resolution * 2)
+	i_Y4 = (i_Resolution * 2)	i_X4 = 44
 
 
-elseif hidden_doors_res == 128 then
+elseif i_HiddenDoorsRes == 64 then
 
-   -- Item's inventory texture dimensions
-   inv_w = pixels * 16   inv_h = pixels * 16
-   inv_size = inv_w.."x"..inv_h
+	-- Item's inventory texture dimensions
+	i_InventoryWidth = (i_Resolution * 8)
+	i_InventoryHeight = (i_Resolution * 8)
+	s_InventorySize = i_InventoryWidth .. "x" .. i_InventoryHeight
 
-   -- Node's texture dimensions dimensions
-   width = ((pixels * 2) + 6) * 8   height = pixels * 16
-   image_size = width .. "x" .. height
+	-- Node's texture dimensions
+	i_NodeWidth = ((i_Resolution * 2) + 6) * 4
+	i_NodeHeight = (i_Resolution * 8)
+	s_ImageSize = i_NodeWidth .. "x" .. i_NodeHeight
 
-   -- Composed texture's dimensions
-   Y1 = 128          X1 = 64
-   Y2 = 48           X2 = 48
-   Y3 = pixels * 8   X3 = pixels * 8
-   Y4 = pixels * 8   X4 = 176
+	-- Composed texture's dimensions
+	i_Y1 = 64					i_X1 = 32
+	i_Y2 = 24					i_X2 = 24
+	i_Y3 = (i_Resolution * 4)	i_X3 = (i_Resolution * 4)
+	i_Y4 = (i_Resolution * 4)	i_X4 = 88
+
+
+elseif i_HiddenDoorsRes == 128 then
+
+	-- Item's inventory texture dimensions
+	i_InventoryWidth = (i_Resolution * 16)
+	i_InventoryHeight = (i_Resolution * 16)
+	s_InventorySize = i_InventoryWidth .. "x" .. i_InventoryHeight
+
+	-- Node's texture dimensions dimensions
+	i_NodeWidth = ((i_Resolution * 2) + 6) * 8
+	i_NodeHeight = (i_Resolution * 16)
+	s_ImageSize = i_NodeWidth .. "x" .. i_NodeHeight
+
+	-- Composed texture's dimensions
+	i_Y1 = 128					i_X1 = 64
+	i_Y2 = 48					i_X2 = 48
+	i_Y3 = (i_Resolution * 8)	i_X3 = (i_Resolution * 8)
+	i_Y4 = (i_Resolution * 8)	i_X4 = 176
 
 
 else
 
-   -- If the setting is not valid then set it to 16px and use that resolution
+	-- If the setting is not valid then set it to 16px and use that resolution
+	i_HiddenDoorsRes = i_Resolution
+	minetest.settings:set("i_HiddenDoorsRes", i_HiddenDoorsRes)
 
-   hidden_doors_res = pixels
-   minetest.settings:set("hidden_doors_res", hidden_doors_res)
+	-- Item's inventory texture dimensions
+	i_InventoryWidth = (i_Resolution * 2)
+	i_InventoryHeight = (i_Resolution * 2)
+	s_InventorySize = i_InventoryWidth .. "x" .. i_InventoryHeight
 
-   -- Item's inventory texture dimensions
-   inv_w = pixels * 2   inv_h = pixels * 2
-   inv_size = inv_w.."x"..inv_h
+	-- Node's texture dimensions
+	i_NodeWidth = (i_Resolution * 2) + 6
+	i_NodeHeight = (i_Resolution * 2)
+	s_ImageSize = i_NodeWidth .. "x" .. i_NodeHeight
 
-   -- Node's texture dimensions
-   width = (pixels * 2) + 6   height = pixels * 2
-   image_size = width.."x"..height
+	-- Composed texture's dimensions
+	i_Y1 = i_Resolution		i_X1 = 8
+	i_Y2 = 6				i_X2 = 6
+	i_Y3 = i_Resolution		i_X3 = i_Resolution
+	i_Y4 = i_Resolution		i_X4 = 22
 
-   -- Composed texture's dimensions
-   Y1 = pixels    X1 = 8
-   Y2 = 6         X2 = 6
-   Y3 = pixels    X3 = pixels
-   Y4 = pixels    X4 = 22
+end
 
+
+hidden_doors.GetPaintedTextureSuffix = function(b_UseDefault16pxResolution)
+
+	local s_TextureSuffix = ""
+	local s_TextureSuffixIntentory = ""
+
+	if (b_DoorsArePainted == true) then
+
+		local i_PaintOpacity = 35
+		local i_PaintOpacityInventory = (i_PaintOpacity + 15)
+
+		if (b_UseDefault16pxResolution == true) then
+			s_TextureSuffix =
+				"^((hidden_doors_painted_overlay.png^[opacity:" ..
+				i_PaintOpacity ..
+				"^hidden_doors_hinges_overlay.png)^[resize:38x32)"
+			s_TextureSuffixIntentory =
+				":8,0=hidden_doors_painted_overlay.png\\^[opacity\\:" ..
+				i_PaintOpacityInventory .. "\\^[resize\\:38x32"
+
+		else
+			s_TextureSuffix =
+				"^((hidden_doors_painted_overlay.png^[opacity:" ..
+				i_PaintOpacity ..
+				"^hidden_doors_hinges_overlay.png)^[resize:" ..
+				s_ImageSize .. ")"
+			s_TextureSuffixIntentory =
+				": " .. i_X1 ..
+				",0=hidden_doors_painted_overlay.png\\^[opacity\\:" ..
+				i_PaintOpacityInventory .. "\\^[resize\\:" .. s_ImageSize
+		end
+	end
+
+	return s_TextureSuffix, s_TextureSuffixIntentory
 end
 
 
-function hidden_doors.get_painted_texture_suffix(use_default_16px_res)
+hidden_doors.RegisterHiddenDoors = function(a_s_ModName, a_s_SubName,
+	s_RecipeItem1, s_RecipeItem2, s_RecipeItem3, a_s_Description,
+	a_t_Sounds, a_s_SoundOpen, a_s_SoundClose)
 
-   local texture_suffix = ""
-   local texture_suffix_inv = ""
+	local s_TextureName = a_s_ModName .. "_" .. a_s_SubName .. ".png"
 
-   if doors_are_painted then 
+	-- If the door uses textures from Darkage then use the default 16px res.
+	-- Do the same for Moreblocks.
+	if (a_s_ModName ~= "darkage") and (a_s_ModName ~= "moreblocks") then
 
-      local paint_opacity = 35
-      local paint_opacity_inv = paint_opacity + 15
+		local s_NewTexture = "[combine:" .. s_ImageSize .. ": 0," ..
+			"0=" .. s_TextureName .. ": 0," ..
+			i_Y3 .. "=" .. s_TextureName .. ":" .. i_X2 .. "," ..
+			"0=" .. s_TextureName .. ":" .. i_X2 .. "," ..
+			i_Y3 .. "=" .. s_TextureName .. ":" .. i_X4 .. "," ..
+			"0=" .. s_TextureName .. ":" .. i_X4 .. "," ..
+			i_Y3 .. "=" .. s_TextureName
 
-      if use_default_16px_res then
-         texture_suffix = 
-            "^((hidden_doors_painted_overlay.png^[opacity:" .. paint_opacity ..
-            "^hidden_doors_hinges_overlay.png)^[resize:38x32)"
-         texture_suffix_inv = 
-            ":8,0=hidden_doors_painted_overlay.png\\^[opacity\\:" .. 
-            paint_opacity_inv .. "\\^[resize\\:38x32"
-      else 
-         texture_suffix = 
-            "^((hidden_doors_painted_overlay.png^[opacity:" .. paint_opacity .. 
-            "^hidden_doors_hinges_overlay.png)^[resize:" .. image_size .. ")"
-         texture_suffix_inv = 
-            ": " .. X1 .. ",0=hidden_doors_painted_overlay.png\\^[opacity\\:" .. 
-            paint_opacity_inv .. "\\^[resize\\:" .. image_size
-      end
-   end
+		local s_PaintedTextureSuffix, s_PaintedTextureSuffixInventory =
+			hidden_doors.get_painted_texture_suffix(false)
 
-   return texture_suffix, texture_suffix_inv
+		doors.register("hidden_door_" .. a_s_SubName, {
+			description = s_Description1 .. a_s_Description .. s_Description2,
+
+			tiles = {
+				{
+					name = "(" .. s_NewTexture ..
+						"^[transformFX)^([combine:" .. s_ImageSize ..
+						":" ..i_X3.. "," .. "0=" .. s_TextureName ..
+						":" .. i_X3 .. "," .. i_Y3 .. "=" ..
+						s_TextureName .. ")" .. s_PaintedTextureSuffix,
+
+					backface_culling = true
+				}
+			},
+
+			inventory_image = "[combine:" .. s_InventorySize .. ":" ..
+				i_X1 .. "," .. "0=" .. s_TextureName .. ":" .. i_X1 ..
+				"," .. i_Y1 .. "=" ..s_TextureName ..
+				s_PaintedTextureSuffixInventory,
+
+			groups = {cracky = 1, level = 2},
+			sounds = a_t_Sounds,
+			sound_open = a_s_SoundOpen,
+			sound_close = a_s_SoundClose,
+
+			recipe = {
+				{
+					s_RecipeItem1, s_RecipeItem2, s_RecipeItem3
+				},
+			}
+		})
+
+
+	else
+
+		local s_NewTexture = "[combine:" .. "38x32" .. ": 0," ..
+			"0=" .. s_TextureName .. ": 0," ..
+			"16=" .. s_TextureName .. ": 6," ..
+			"0=" .. s_TextureName .. ": 6," ..
+			"16=" .. s_TextureName .. ": 22," ..
+			"0=" .. s_TextureName .. ": 22," ..
+			"16=" .. s_TextureName
+
+		local s_PaintedTextureSuffix, s_PaintedTextureSuffixInventory =
+			hidden_doors.get_painted_texture_suffix(true)
+
+		doors.register("hidden_door_" .. a_s_SubName, {
+
+			description = s_Description1 .. a_s_Description .. s_Description2,
+
+			tiles = {
+				{
+					name = "(" .. s_NewTexture .. "^[transformFX)^([combine:"
+					.. "38x32" .. ": 16," .. "0=" .. s_TextureName .. ": 16,"
+					.. "16=" .. s_TextureName .. ")" .. s_PaintedTextureSuffix,
+
+					backface_culling = true
+				}
+			},
+
+			inventory_image = "[combine:" .. "32x32" .. ": 8," ..
+				"0=" .. s_TextureName .. ": 8," .. "16=" .. s_TextureName ..
+				s_PaintedTextureSuffixInventory,
+
+			groups = {cracky = 1, level = 2},
+			sounds = a_t_Sounds,
+			sound_open = a_s_SoundOpen,
+			sound_close = a_s_SoundClose,
+
+			recipe = {
+				{
+					s_RecipeItem1,
+					s_RecipeItem2,
+					s_RecipeItem3
+				},
+			}
+		})
+	end
 end
 
-
-function hidden_doors.register_hidden_doors(modname, subname, recipeItem1,
-   recipeItem2, recipeItem3, desc, sounds, sound_open, sound_close)
-
-   local texture_name = modname .. "_" .. subname .. ".png"
-
-   -- If the door uses textures from Darkage then use the default 16px res.
-   -- Do the same for Moreblocks.
-   if (modname ~= "darkage") and (modname ~= "moreblocks") then
-
-      local new_texture = "[combine:" .. image_size .. ": 0," ..
-         "0=" .. texture_name .. ": 0," ..
-         Y3 .. "=" .. texture_name .. ":" .. X2 .. "," ..
-         "0=" .. texture_name .. ":" .. X2 .. "," ..
-         Y3 .. "=" .. texture_name .. ":" .. X4 .. "," ..
-         "0=" .. texture_name .. ":" .. X4 .. "," ..
-         Y3 .. "=" .. texture_name
-
-      local painted_texture_suffix, painted_texture_suffix_inv =
-         hidden_doors.get_painted_texture_suffix(false)  
-
-      doors.register("hidden_door_" .. subname, {
-
-         description = description_1 .. desc .. description_2,
-
-         tiles = {{ name = "(" .. new_texture ..
-            "^[transformFX)^([combine:" .. image_size.. ":" ..X3.. "," ..
-            "0=" .. texture_name .. ":" .. X3 .. "," ..
-            Y3 .. "=" .. texture_name .. ")" .. painted_texture_suffix, 
-            backface_culling = true }},
-
-         inventory_image = "[combine:" .. inv_size .. ":" .. X1 .. "," ..
-            "0=" .. texture_name .. ":" .. X1 .. "," ..
-            Y1 .. "=" ..texture_name .. painted_texture_suffix_inv,
-
-         groups = {cracky = 1, level = 2},
-         sounds = sounds,
-         sound_open = sound_open,
-         sound_close = sound_close,
-
-         recipe = { {recipeItem1, recipeItem2, recipeItem3}, }}
-      )
-
-   else
-
-      local new_texture = "[combine:" .. "38x32" .. ": 0," ..
-         "0=" .. texture_name .. ": 0," ..
-         "16=" .. texture_name .. ": 6," ..
-         "0=" .. texture_name .. ": 6," ..
-         "16=" .. texture_name .. ": 22," ..
-         "0=" .. texture_name .. ": 22," ..
-         "16=" .. texture_name
-
-      local painted_texture_suffix, painted_texture_suffix_inv =
-         hidden_doors.get_painted_texture_suffix(true)    
- 
-      doors.register("hidden_door_" .. subname, {
-
-         description = description_1 .. desc .. description_2,
-
-         tiles = {{ name = "(" .. new_texture ..
-            "^[transformFX)^([combine:" .. "38x32" .. ": 16," ..
-            "0=" .. texture_name .. ": 16," ..
-            "16=" .. texture_name .. ")" .. painted_texture_suffix, 
-            backface_culling = true }},
-
-         inventory_image = "[combine:" .. "32x32" .. ": 8," ..
-            "0=" .. texture_name .. ": 8," ..
-            "16=" .. texture_name .. painted_texture_suffix_inv,
-
-         groups = {cracky = 1, level = 2},
-         sounds = sounds,
-         sound_open = sound_open,
-         sound_close = sound_close,
-
-         recipe = { {recipeItem1, recipeItem2, recipeItem3}, }}
-      )
-
-   end
-
-end
 
 --
 -- Minetest Game's based hidden doors
 --
 
-dofile(MP .. "/minetest_game.lua")
+dofile(s_ModPath .. "/minetest_game.lua")
 
 
 --
@@ -297,9 +351,9 @@ dofile(MP .. "/minetest_game.lua")
 --
 
 if minetest.get_modpath("darkage") then
-   dofile(MP .. "/darkage.lua")
+	dofile(s_ModPath .. "/darkage.lua")
 end
 
 if minetest.get_modpath("moreblocks") then
-   dofile(MP .. "/moreblocks.lua")
+	dofile(s_ModPath .. "/moreblocks.lua")
 end

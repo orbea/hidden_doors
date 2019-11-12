@@ -1,49 +1,47 @@
 --[[
+	Hidden Doors - Adds various wood, stone, etc. doors.
+	Copyright © 2017, 2019 Hamlet <hamlatmesehub@riseup.net> and contributors.
 
-   Hidden Doors - Adds various wood, stone, etc. doors.
+	Licensed under the EUPL, Version 1.2 or – as soon they will be
+	approved by the European Commission – subsequent versions of the
+	EUPL (the "Licence");
+	You may not use this work except in compliance with the Licence.
+	You may obtain a copy of the Licence at:
 
-   Copyright (C) 2017-2018  Hamlet
+	https://joinup.ec.europa.eu/software/page/eupl
+	https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017D0863
 
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
-   (at your option) any later version.
+	Unless required by applicable law or agreed to in writing,
+	software distributed under the Licence is distributed on an
+	"AS IS" basis,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+	implied.
+	See the Licence for the specific language governing permissions
+	and limitations under the Licence.
 
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-   MA 02110-1301, USA.
-
-]]--
+--]]
 
 
 --
 -- General variables
 --
 
-local minetest_log_level = minetest.settings:get("debug_log_level")
-local mod_load_message = "[Mod] Hidden Doors [v1.10.2] loaded."
-local mod_path = minetest.get_modpath("hidden_doors")
+local s_ModPath = minetest.get_modpath("hidden_doors")
 
 
 -- Hidden Doors' operation mode
-local hidden_doors_remover = minetest.settings:get_bool("hidden_doors_remover")
+local b_HiddenDoorsRemover = minetest.settings:get_bool("b_HiddenDoorsRemover")
 
-if not hidden_doors_remover then
-   hidden_doors_remover = false
+if (b_HiddenDoorsRemover == nil) then
+	b_HiddenDoorsRemover = false
 end
 
-if (hidden_doors_remover == false) then
-   dofile(mod_path .. "/main.lua")
-end
+if (b_HiddenDoorsRemover == false) then
+	dofile(s_ModPath .. "/main.lua")
 
-if (hidden_doors_remover == true) then
-   dofile(mod_path .. "/remover.lua")
+else
+	dofile(s_ModPath .. "/remover.lua")
+
 end
 
 
@@ -51,8 +49,13 @@ end
 -- Minetest engine debug logging
 --
 
-if (minetest_log_level == nil) or (minetest_log_level == "action") or
-	(minetest_log_level == "info") or (minetest_log_level == "verbose") then
+local s_LogLevel = minetest.settings:get("debug_log_level")
 
-	minetest.log("action", mod_load_message)
+if (s_LogLevel == nil)
+or (s_LogLevel == "action")
+or (s_LogLevel == "info")
+or (s_LogLevel == "verbose")
+then
+	s_LogLevel = nil
+	minetest.log("action", "[Mod] Hidden Doors [v1.12.0] loaded.")
 end

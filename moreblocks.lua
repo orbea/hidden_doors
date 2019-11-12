@@ -1,25 +1,25 @@
 --[[
+	Hidden Doors - Adds various wood, stone, etc. doors.
+	Copyright © 2017, 2019 Hamlet <hamlatmesehub@riseup.net> and contributors.
 
-   Hidden Doors - Adds various wood, stone, etc. doors.
+	Licensed under the EUPL, Version 1.2 or – as soon they will be
+	approved by the European Commission – subsequent versions of the
+	EUPL (the "Licence");
+	You may not use this work except in compliance with the Licence.
+	You may obtain a copy of the Licence at:
 
-   Copyright (C) 2017-2018  Hamlet
+	https://joinup.ec.europa.eu/software/page/eupl
+	https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017D0863
 
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
-   (at your option) any later version.
+	Unless required by applicable law or agreed to in writing,
+	software distributed under the Licence is distributed on an
+	"AS IS" basis,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+	implied.
+	See the Licence for the specific language governing permissions
+	and limitations under the Licence.
 
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-   MA 02110-1301, USA.
-
-]]--
+--]]
 
 
 --
@@ -27,139 +27,139 @@
 --
 
 hidden_doors.register_hidden_doors("default", "jungletree_top",
-   recipeItem1, "moreblocks:slab_all_faces_jungle_tree",
-   "moreblocks:slab_all_faces_jungle_tree", S("All-faces Jungle Tree"),
-   wood_default, wood_open, wood_close)
+	s_RecipeItem1, "moreblocks:slab_all_faces_jungle_tree",
+	"moreblocks:slab_all_faces_jungle_tree", S("All-faces Jungle Tree"),
+	t_WoodDefault, s_WoodOpen, s_WoodClose)
 
 hidden_doors.register_hidden_doors("default", "tree_top",
-   recipeItem1, "moreblocks:slab_all_faces_tree",
-   "moreblocks:slab_all_faces_tree", S("All-faces Tree"),
-   wood_default, wood_open, wood_close)
+	s_RecipeItem1, "moreblocks:slab_all_faces_tree",
+	"moreblocks:slab_all_faces_tree", S("All-faces Tree"),
+	t_WoodDefault, s_WoodOpen, s_WoodClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "cactus_brick",
-   recipeItem1, "moreblocks:slab_cactus_brick",
-   "moreblocks:slab_cactus_brick", S("Cactus Brick"),
-   stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_cactus_brick",
+	"moreblocks:slab_cactus_brick", S("Cactus Brick"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 --[[ Disabled due to additional texture manipulation required
 
 hidden_doors.register_hidden_doors("moreblocks", "cactus_checker",
-   recipeItem1, "moreblocks:slab_cactus_checker",
-   "moreblocks:slab_cactus_checker", S("Cactus Checker"),
-   stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_cactus_checker",
+	"moreblocks:slab_cactus_checker", S("Cactus Checker"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 ]]--
 
 hidden_doors.register_hidden_doors("moreblocks", "circle_stone_bricks",
-   recipeItem1, "moreblocks:slab_circle_stone_bricks",
-   "moreblocks:slab_circle_stone_bricks", S("Circle Stone Bricks"),
-   stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_circle_stone_bricks",
+	"moreblocks:slab_circle_stone_bricks", S("Circle Stone Bricks"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 --[[ Disabled due to additional texture manipulation required
 
 hidden_doors.register_hidden_doors("moreblocks", "coal_checker",
-   recipeItem1, "moreblocks:slab_coal_checker",
-   "moreblocks:slab_coal_checker", S("Coal Checker"),
-   stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_coal_checker",
+	"moreblocks:slab_coal_checker", S("Coal Checker"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 ]]--
 
 hidden_doors.register_hidden_doors("moreblocks", "coal_stone",
-   recipeItem1, "moreblocks:slab_coal_stone",
-   "moreblocks:slab_coal_stone", S("Coal Stone"),
-   stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_coal_stone",
+	"moreblocks:slab_coal_stone", S("Coal Stone"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "cobble_compressed",
-   recipeItem1, "moreblocks:slab_cobble_compressed",
-   "moreblocks:slab_cobble_compressed", S("Cobble Compressed"),
-   stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_cobble_compressed",
+	"moreblocks:slab_cobble_compressed", S("Cobble Compressed"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "copperpatina",
-   recipeItem1, "moreblocks:slab_copperpatina",
-   "moreblocks:slab_copperpatina", S("Copper Patina"),
-   metal_default, metal_open, metal_close)
+	s_RecipeItem1, "moreblocks:slab_copperpatina",
+	"moreblocks:slab_copperpatina", S("Copper Patina"),
+	t_MetalDefault, s_MetalOpen, s_MetalClose)
 
 
 hidden_doors.register_hidden_doors("moreblocks", "empty_shelf",
-   recipeItem1, "moreblocks:empty_shelf", nil, S("Empty Shelf"),
-   wood_default, wood_open, wood_close)
+	s_RecipeItem1, "moreblocks:empty_shelf", nil, S("Empty Shelf"),
+	t_WoodDefault, s_WoodOpen, s_WoodClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "grey_bricks",
-   recipeItem1, "moreblocks:slab_grey_bricks",
-   "moreblocks:slab_grey_bricks", S("Stone Bricks"),
-   stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_grey_bricks",
+	"moreblocks:slab_grey_bricks", S("Stone Bricks"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 --[[ Disabled due to additional texture manipulation required
 
 hidden_doors.register_hidden_doors("moreblocks", "iron_checker",
-   recipeItem1, "moreblocks:slab_iron_checker",
-   "moreblocks:slab_iron_checker", S("Iron Checker"),
-   metal_default, metal_open, metal_close)
+	s_RecipeItem1, "moreblocks:slab_iron_checker",
+	"moreblocks:slab_iron_checker", S("Iron Checker"),
+	t_MetalDefault, s_MetalOpen, s_MetalClose)
 
 ]]--
 
 hidden_doors.register_hidden_doors("moreblocks", "iron_stone",
-   recipeItem1, "moreblocks:slab_iron_stone",
-   "moreblocks:slab_iron_stone", S("Iron Stone"),
-   stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_iron_stone",
+	"moreblocks:slab_iron_stone", S("Iron Stone"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "iron_stone_bricks",
-   recipeItem1, "moreblocks:slab_iron_stone_bricks",
-   "moreblocks:slab_iron_stone_bricks", S("Iron Stone Bricks"),
-   stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_iron_stone_bricks",
+	"moreblocks:slab_iron_stone_bricks", S("Iron Stone Bricks"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "plankstone",
-   recipeItem1, "moreblocks:slab_plankstone", "moreblocks:slab_plankstone",
-   S("Plankstone"), stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_plankstone", "moreblocks:slab_plankstone",
+	S("Plankstone"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "split_stone_tile",
-   recipeItem1, "moreblocks:slab_split_stone_tile",
-   "moreblocks:slab_split_stone_tile", S("Split Stone Tile"),
-   stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_split_stone_tile",
+	"moreblocks:slab_split_stone_tile", S("Split Stone Tile"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "stone_tile",
-   recipeItem1, "moreblocks:slab_stone_tile",
-   "moreblocks:slab_stone_tile", S("Stone Tile"),
-   stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_stone_tile",
+	"moreblocks:slab_stone_tile", S("Stone Tile"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "tar",
-   recipeItem1, "moreblocks:slab_tar", "moreblocks:slab_tar",
-   S("Tar"), stone_default, stone_open, stone_close)
+	s_RecipeItem1, "moreblocks:slab_tar", "moreblocks:slab_tar",
+	S("Tar"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 --[[ Disabled due to additional texture manipulation required
 
 hidden_doors.register_hidden_doors("moreblocks", "wood_tile",
-   recipeItem1, "moreblocks:slab_wood_tile", "moreblocks:slab_wood_tile",
-   S("Wooden Tile"), wood_default, wood_open, wood_close)
+	s_RecipeItem1, "moreblocks:slab_wood_tile", "moreblocks:slab_wood_tile",
+	S("Wooden Tile"), t_WoodDefault, s_WoodOpen, s_WoodClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "wood_tile_center",
-   recipeItem1, "moreblocks:slab_wood_tile_center",
-   "moreblocks:slab_wood_tile_center", S("Centered Wooden Tile"),
-   wood_default, wood_open, wood_close)
+	s_RecipeItem1, "moreblocks:slab_wood_tile_center",
+	"moreblocks:slab_wood_tile_center", S("Centered Wooden Tile"),
+	t_WoodDefault, s_WoodOpen, s_WoodClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "wood_tile_down",
-   recipeItem1, "moreblocks:wood_tile_down", nil,
-   S("Downwards Wooden Tile"), wood_default, wood_open, wood_close)
+	s_RecipeItem1, "moreblocks:wood_tile_down", nil,
+	S("Downwards Wooden Tile"), t_WoodDefault, s_WoodOpen, s_WoodClose)
 
 ]]--
 
 hidden_doors.register_hidden_doors("moreblocks", "wood_tile_full",
-   recipeItem1, "moreblocks:slab_wood_tile_full",
-   "moreblocks:slab_wood_tile_full", S("Full Wooden Tile"),
-   wood_default, wood_open, wood_close)
+	s_RecipeItem1, "moreblocks:slab_wood_tile_full",
+	"moreblocks:slab_wood_tile_full", S("Full Wooden Tile"),
+	t_WoodDefault, s_WoodOpen, s_WoodClose)
 
 --[[ Disabled due to additional texture manipulation required
 
 hidden_doors.register_hidden_doors("moreblocks", "wood_tile_left",
-   recipeItem1, "moreblocks:wood_tile_left", nil,
-   S("Leftwards Wooden Tile"), wood_default, wood_open, wood_close)
+	s_RecipeItem1, "moreblocks:wood_tile_left", nil,
+	S("Leftwards Wooden Tile"), t_WoodDefault, s_WoodOpen, s_WoodClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "wood_tile_right",
-   recipeItem1, "moreblocks:wood_tile_right", nil,
-   S("Rightwards Wooden Tile"), wood_default, wood_open, wood_close)
+	s_RecipeItem1, "moreblocks:wood_tile_right", nil,
+	S("Rightwards Wooden Tile"), t_WoodDefault, s_WoodOpen, s_WoodClose)
 
 hidden_doors.register_hidden_doors("moreblocks", "wood_tile_up",
-   recipeItem1, "moreblocks:wood_tile_up", nil,
-   S("Upwards Wooden Tile"), wood_default, wood_open, wood_close)
+	s_RecipeItem1, "moreblocks:wood_tile_up", nil,
+	S("Upwards Wooden Tile"), t_WoodDefault, s_WoodOpen, s_WoodClose)
 
 ]]--
