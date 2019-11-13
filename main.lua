@@ -256,7 +256,7 @@ hidden_doors.RegisterHiddenDoors = function(a_s_ModName, a_s_SubName,
 			i_Y3 .. "=" .. s_TextureName
 
 		local s_PaintedTextureSuffix, s_PaintedTextureSuffixInventory =
-			hidden_doors.get_painted_texture_suffix(false)
+			hidden_doors.GetPaintedTextureSuffix(false)
 
 		doors.register("hidden_door_" .. a_s_SubName, {
 			description = s_Description1 .. a_s_Description .. s_Description2,
@@ -302,7 +302,7 @@ hidden_doors.RegisterHiddenDoors = function(a_s_ModName, a_s_SubName,
 			"16=" .. s_TextureName
 
 		local s_PaintedTextureSuffix, s_PaintedTextureSuffixInventory =
-			hidden_doors.get_painted_texture_suffix(true)
+			hidden_doors.GetPaintedTextureSuffix(true)
 
 		doors.register("hidden_door_" .. a_s_SubName, {
 
