@@ -34,9 +34,22 @@ hidden_doors = {}
 -- Variables
 --
 
--- Load support for intllib.
 local s_ModPath = minetest.get_modpath(minetest.get_current_modname())
-S, NS = dofile(s_ModPath.."/intllib.lua")
+
+
+-- Used for localization, choose either built-in or intllib.
+
+local S, NS = nil
+
+if (minetest.get_modpath("intllib") == nil) then
+	S = minetest.get_translator("hidden_doors")
+
+else
+	-- internationalization boilerplate
+	S, NS = dofile(s_ModPath.."/intllib.lua")
+
+end
+
 
 local s_Description1 = S("Concealed ")
 local s_Description2 = S(" Door")
