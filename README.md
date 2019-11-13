@@ -1,15 +1,19 @@
 ### HIDDEN DOORS
 ![Hidden Doors' screenshot](screenshot.png)  
 **_Adds various wood, stone, etc. doors._**  
-Allows to use painted doors Settings/Advanced Settings/Mods/hidden_doors  
-Allows self-removal via Advanced Settings
 
-**Version:** 1.11  
-**Source code's license:** GPL v3.0  
-**Media (Textures, Sounds) license:** CC BY-SA 4.0 International
+**Version:** 1.12.0  
+**Source code's license:** [EUPL v1.2][1] or later.  
+**Media (Textures, Sounds) license:** [CC BY-SA 4.0 International][2] or later.
 
-**Dependencies:** default, doors, stairs, vessels (found in Minetest Game)  
+**Dependencies:** default, doors, stairs, vessels (found in [Minetest Game][3])  
 **Supported:** Darkage (Addi's fork), Moreblocks
+
+__Advanced settings:__  
+Settings -> All settings -> Mods -> hidden_doors
+
+Allows to use painted doors  
+Allows self-removal
 
 
 ### Installation
@@ -25,3 +29,8 @@ GNU+Linux - If you use a system-wide installation place it in
 
 For further information or help see:  
 https://wiki.minetest.net/Help:Installing_Mods
+
+
+[1]: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017D0863
+[2]: https://creativecommons.org/licenses/by-sa/4.0/
+[3]: https://github.com/minetest/minetest_game

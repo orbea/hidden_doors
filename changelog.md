@@ -7,7 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-	No further features planned.
+	- No other feature planned.
+
+
+
+## [1.12.0] - 2019-11-13
+## Added
+
+	- Permafrost hidden door (if permafrost node available).
+	- Support for Minetest engine v5.x translator.
+
+
+## Changed
+
+	- License changed to EUPL v1.2.
+	- Code style and formatting refresh.
+	- Textures have been optimized using optipng.
+
 
 
 ## [1.11] - 2018-09-12

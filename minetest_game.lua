@@ -259,3 +259,32 @@ hidden_doors.RegisterHiddenDoors("default", "silver_sand", s_RecipeItem1,
 hidden_doors.RegisterHiddenDoors("default", "desert_sand", s_RecipeItem1,
 	"default:desert_sand", nil, S("Desert Sand"),
 	t_StoneDefault, t_StoneOpen, t_StoneClose)
+
+
+--
+-- Support for Minetest Game v5.x node(s)
+--
+
+-- Scan for the new node(s)
+local t_NodesFound = minetest.registered_nodes
+local b_PermafrostAvailable = false
+
+for _, value in pairs(t_NodesFound) do
+	if (value.name == "default:permafrost") then
+		b_PermafrostAvailable = true
+	end
+end
+
+if (b_PermafrostAvailable == true) then
+	hidden_doors.RegisterHiddenDoors("default", "permafrost", s_RecipeItem1,
+	"default:permafrost", nil, S("Permafrost"),
+	t_StoneDefault, t_StoneOpen, t_StoneClose)
+end
+
+
+--
+-- Flush the variables
+--
+
+t_NodesFound = nil
+b_PermafrostAvailable = nil
