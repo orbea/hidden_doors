@@ -50,15 +50,15 @@ hidden_doors.RegisterHiddenDoors("darkage", "adobe", s_RecipeItem1,
 	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "basalt", s_RecipeItem1,
-	"stairs:slab_darkage_basalt", "stairs:slab_darkage_basalt", S("Basalt"),
+	"darkage:slab_basalt", "darkage:slab_basalt", S("Basalt"),
 	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "basalt_rubble", s_RecipeItem1,
-	"stairs:slab_darkage_basalt_rubble", "stairs:slab_darkage_basalt_rubble",
+	"darkage:slab_basalt_rubble", "darkage:slab_basalt_rubble",
 	S("Basalt Rubble"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "basalt_brick", s_RecipeItem1,
-	"stairs:slab_darkage_basalt_brick", "stairs:slab_darkage_basalt_brick",
+	"darkage:slab_basalt_brick", "darkage:slab_basalt_brick",
 	S("Basalt Brick"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "basalt_block", s_RecipeItem1,
@@ -66,15 +66,15 @@ hidden_doors.RegisterHiddenDoors("darkage", "basalt_block", s_RecipeItem1,
 	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "gneiss", s_RecipeItem1,
-	"stairs:slab_darkage_gneiss", "stairs:slab_darkage_gneiss",
+	"darkage:slab_gneiss", "darkage:slab_gneiss",
 	S("Gneiss"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "gneiss_rubble", s_RecipeItem1,
-	"stairs:slab_darkage_gneiss_rubble", "stairs:slab_darkage_gneiss_rubble",
+	"darkage:slab_gneiss_rubble", "darkage:slab_gneiss_rubble",
 	S("Gneiss Rubble"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "gneiss_brick", s_RecipeItem1,
-	"stairs:slab_darkage_gneiss_brick", "stairs:slab_darkage_gneiss_brick",
+	"darkage:slab_gneiss_brick", "darkage:slab_gneiss_brick",
 	S("Gneiss Brick"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "gneiss_block", s_RecipeItem1,
@@ -82,23 +82,23 @@ hidden_doors.RegisterHiddenDoors("darkage", "gneiss_block", s_RecipeItem1,
 	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "marble", s_RecipeItem1,
-	"stairs:slab_darkage_marble", "stairs:slab_darkage_marble",
+	"darkage:slab_marble", "darkage:slab_marble",
 	S("Marble"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "marble_tile", s_RecipeItem1,
-	"stairs:slab_darkage_marble_tile", "stairs:slab_darkage_marble_tile",
+	"darkage:slab_marble_tile", "darkage:slab_marble_tile",
 	S("Marble Tile"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "ors", s_RecipeItem1,
-	"stairs:slab_darkage_ors", "stairs:slab_darkage_ors",
+	"darkage:slab_ors", "darkage:slab_ors",
 	S("Old Red Sandstone"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "ors_rubble", s_RecipeItem1,
-	"stairs:slab_darkage_ors_rubble", "stairs:slab_darkage_ors_rubble",
+	"darkage:slab_ors_rubble", "darkage:slab_ors_rubble",
 	S("Old Red Sandstone Rubble"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "ors_brick", s_RecipeItem1,
-	"stairs:slab_darkage_ors_brick", "stairs:slab_darkage_ors_brick",
+	"darkage:slab_ors_brick", "darkage:slab_ors_brick",
 	S("Old Red Sandstone Brick"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "ors_block", s_RecipeItem1,
@@ -106,27 +106,27 @@ hidden_doors.RegisterHiddenDoors("darkage", "ors_block", s_RecipeItem1,
 	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "serpentine", s_RecipeItem1,
-	"stairs:slab_darkage_serpentine", "stairs:slab_darkage_serpentine",
+	"darkage:slab_serpentine", "darkage:slab_serpentine",
 	S("Serpentine"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "shale", s_RecipeItem1,
-	"stairs:slab_darkage_shale", "stairs:slab_darkage_shale",
+	"darkage:slab_shale", "darkage:slab_shale",
 	S("Shale"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "schist", s_RecipeItem1,
-	"stairs:slab_darkage_schist", "stairs:slab_darkage_schist",
+	"darkage:slab_schist", "darkage:slab_schist",
 	S("Schist"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "slate", s_RecipeItem1,
-	"stairs:slab_darkage_slate", "stairs:slab_darkage_slate",
+	"darkage:slab_slate", "darkage:slab_slate",
 	S("Slate"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "slate_rubble", s_RecipeItem1,
-	"stairs:slab_darkage_slate_rubble", "stairs:slab_darkage_slate_rubble",
+	"darkage:slab_slate_rubble", "darkage:slab_slate_rubble",
 	S("Slate Rubble"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "slate_tile", s_RecipeItem1,
-	"stairs:slab_darkage_slate_tile", "stairs:slab_darkage_slate_tile",
+	"darkage:slab_slate_tile", "darkage:slab_slate_tile",
 	S("Slate Tile"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "slate_block", s_RecipeItem1,
@@ -134,15 +134,15 @@ hidden_doors.RegisterHiddenDoors("darkage", "slate_block", s_RecipeItem1,
 	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "slate_brick", s_RecipeItem1,
-	"stairs:slab_darkage_slate_brick", "stairs:slab_darkage_slate_brick",
+	"darkage:slab_slate_brick", "darkage:slab_slate_brick",
 	S("Slate Brick"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "tuff", s_RecipeItem1,
-	"stairs:slab_darkage_tuff", "stairs:slab_darkage_tuff",
+	"darkage:slab_tuff", "darkage:slab_tuff",
 	S("Tuff"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "tuff_bricks", s_RecipeItem1,
-	"stairs:slab_darkage_tuff_bricks", "stairs:slab_darkage_tuff_bricks",
+	"darkage:slab_tuff_bricks", "darkage:slab_tuff_bricks",
 	S("Tuff Bricks"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "tuff_rubble", s_RecipeItem1,
@@ -150,20 +150,19 @@ hidden_doors.RegisterHiddenDoors("darkage", "tuff_rubble", s_RecipeItem1,
 	t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "rhyolitic_tuff", s_RecipeItem1,
-	"stairs:slab_darkage_rhyolitic_tuff",
-	"stairs:slab_darkage_rhyolitic_tuff",
+	"darkage:slab_rhyolitic_tuff", "darkage:slab_rhyolitic_tuff",
 	S("Rhyolitic Tuff"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "rhyolitic_tuff_bricks",
 	s_RecipeItem1,
-	"stairs:slab_darkage_rhyolitic_tuff_bricks",
-	"stairs:slab_darkage_rhyolitic_tuff_bricks",
+	"darkage:slab_rhyolitic_tuff_bricks",
+	"darkage:slab_rhyolitic_tuff_bricks",
 	S("Rhyolitic Tuff Bricks"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "old_tuff_bricks",
 	s_RecipeItem1,
-	"stairs:slab_darkage_old_tuff_bricks",
-	"stairs:slab_darkage_old_tuff_bricks",
+	"darkage:slab_old_tuff_bricks",
+	"darkage:slab_old_tuff_bricks",
 	S("Old Tuff Bricks"), t_StoneDefault, t_StoneOpen, t_StoneClose)
 
 hidden_doors.RegisterHiddenDoors("darkage", "rhyolitic_tuff_rubble",
